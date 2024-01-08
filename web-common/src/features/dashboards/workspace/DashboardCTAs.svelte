@@ -24,7 +24,7 @@
 
   $: dashboardPolicyCheck = useDashboardPolicyCheck(
     $runtime.instanceId,
-    metricViewName
+    metricViewName,
   );
 
   $: isEditableDashboard = $featureFlags.readOnly === false;
@@ -42,7 +42,7 @@
       BehaviourEventMedium.Button,
       MetricsEventSpace.Workspace,
       MetricsEventScreenName.Dashboard,
-      MetricsEventScreenName.MetricsDefinition
+      MetricsEventScreenName.MetricsDefinition,
     );
   }
 

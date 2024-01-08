@@ -24,7 +24,7 @@
   export let metricsDefName;
   $: filePath = getFilePathFromNameAndType(
     metricsDefName,
-    EntityType.MetricsDefinition
+    EntityType.MetricsDefinition,
   );
 
   const queryClient = useQueryClient();
@@ -34,7 +34,7 @@
   $: allErrors = getAllErrorsForFile(
     queryClient,
     $runtime.instanceId,
-    filePath
+    filePath,
   );
 
   let buttonDisabled = true;
@@ -48,7 +48,7 @@
       BehaviourEventMedium.Button,
       MetricsEventSpace.Workspace,
       MetricsEventScreenName.MetricsDefinition,
-      MetricsEventScreenName.Dashboard
+      MetricsEventScreenName.Dashboard,
     );
   };
 

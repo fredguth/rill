@@ -31,12 +31,12 @@
   $: modelHasError = getFileHasErrors(
     queryClient,
     $runtime.instanceId,
-    modelPath
+    modelPath,
   );
   $: modelSchemaIsReady = useModelSchemaIsReady(
     queryClient,
     $runtime.instanceId,
-    modelName
+    modelName,
   );
   $: disableCreateDashboard = $modelHasError || !$modelSchemaIsReady;
 
@@ -45,7 +45,7 @@
     modelName,
     queryClient,
     BehaviourEventMedium.Menu,
-    MetricsEventSpace.LeftPanel
+    MetricsEventSpace.LeftPanel,
   );
 
   async function createDashboardFromModelHandler() {
@@ -59,7 +59,7 @@
         $runtime.instanceId,
         modelName,
         EntityType.Model,
-        $modelNames.data
+        $modelNames.data,
       );
     }
     toggleMenu();
