@@ -10,7 +10,7 @@
 </script>
 
 <svelte:head>
-  <title>Rill Developer</title>
+  <title>Rill Open Source</title>
 </svelte:head>
 
 {#if data.initialized}
