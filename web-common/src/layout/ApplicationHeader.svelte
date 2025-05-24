@@ -86,13 +86,13 @@
 </script>
 
 <header>
-  <a href="/">
+  <!-- <a href="/">
     <Rill />
   </a>
 
   <span class="rounded-full px-2 border text-gray-800 bg-gray-50">
     {mode}
-  </span>
+  </span> -->
 
   {#if mode === "Preview"}
     {#if $exploresQuery?.data}
@@ -116,12 +116,12 @@
         <ExplorePreviewCTAs exploreName={dashboardName} />
       {/if}
     {/if}
-    {#if $rillDevCloudFeatures}
+    <!-- {#if $rillDevCloudFeatures}
       {#if !onDeployPage}
         <DeployProjectCTA {hasValidDashboard} />
       {/if}
       <LocalAvatarButton />
-    {/if}
+    {/if} -->
   </div>
 </header>
 
