@@ -1,0 +1,35 @@
+app = "mgi-rill"
+  primary_region = "gru"
+  kill_signal = "SIGINT"
+  kill_timeout = 30
+
+  [build]
+    dockerfile = "Dockerfile"
+
+  [env]
+    PORT = "8080"
+
+  [http_service]
+    internal_port = 8080
+    force_https = true
+    auto_stop_machines = true
+    auto_start_machines = true
+    min_machines_running = 1
+    processes = ["app"]
+
+    [http_service.concurrency]
+      type = "connections"
+      hard_limit = 1000
+      soft_limit = 500
+
+  [[services]]
+    protocol = "tcp"
+    internal_port = 49009
+    processes = ["app"]
+
+    [[services.ports]]
+      port = 49009
+
+
+
+

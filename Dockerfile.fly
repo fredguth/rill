@@ -1,0 +1,30 @@
+
+  FROM --platform=linux/amd64 fredguth/rill:latest
+
+  # Switch to root to set up the project
+  USER root
+
+  # Create project directory
+  RUN mkdir -p /home/rill/project/tmp && chown -R rill:rill /home/rill/project
+
+  # Copy your project files
+  COPY . /home/rill/project/
+  RUN chown -R rill:rill /home/rill/project
+
+  # Set environment variables
+  ENV FLY_PROCESS_GROUP=app
+  ENV PORT=8080
+  ENV VITE_PLAYWRIGHT_TEST=true
+
+  # Switch back to rill user
+  USER rill
+  WORKDIR /home/rill/project
+
+  # Expose ports
+  EXPOSE 8080 49009
+
+  # Override the base image entrypoint
+  ENTRYPOINT []
+
+  # Use your custom command
+  CMD bash -c "rill start --port $PORT --environment prod --readonly --no-open --allowed-origins '*'"
